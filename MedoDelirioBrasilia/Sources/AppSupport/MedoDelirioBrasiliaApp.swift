@@ -175,6 +175,7 @@ class AppDelegate: NSObject, UIApplicationDelegate, UNUserNotificationCenterDele
     // MARK: - Firebase
 
     private func configureFirebase() {
+        guard AppIdentity.isOfficialBuild else { return }
         let plistName: String
         if Bundle.main.bundleIdentifier == "com.rafaelschmitt.MedoDelirioBrasilia.beta" {
             plistName = "GoogleService-Info-Beta"
@@ -193,6 +194,7 @@ class AppDelegate: NSObject, UIApplicationDelegate, UNUserNotificationCenterDele
     // MARK: - Telemetry
 
     private func collectTelemetry() async {
+        guard AppIdentity.isOfficialBuild else { return }
         await sendDeviceModelNameToServer()
         await sendWatchPairingStatusToServer()
         await sendStillAliveSignalToServer()
