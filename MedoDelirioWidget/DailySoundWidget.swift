@@ -15,7 +15,7 @@ enum WidgetSoundCache {
     static func read() -> [WidgetSoundCacheEntry] {
         guard
             let url = FileManager.default
-                .containerURL(forSecurityApplicationGroupIdentifier: "group.com.rafaelschmitt.MedoDelirioBrasilia")?
+                .containerURL(forSecurityApplicationGroupIdentifier: "group.com.lucasdoreac.cao")?
                 .appendingPathComponent("widget_sound_cache.json"),
             let data = try? Data(contentsOf: url),
             let entries = try? JSONDecoder().decode([WidgetSoundCacheEntry].self, from: data)

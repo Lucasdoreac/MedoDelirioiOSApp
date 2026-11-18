@@ -143,6 +143,7 @@ enum APIClientError: Error, LocalizedError {
     case errorFetchingUpdateEvents(String)
     case resourceNotFound
     case unableToCreateUrlFor(String)
+    case writesDisabledOutsideOfficialApp
 
     var errorDescription: String? {
         switch self {
@@ -160,6 +161,8 @@ enum APIClientError: Error, LocalizedError {
             return "Recurso não encontrado."
         case .unableToCreateUrlFor(let id):
             return "Não foi possível criar URL para \(id)."
+        case .writesDisabledOutsideOfficialApp:
+            return "Envio desligado fora do app oficial."
         }
     }
 }

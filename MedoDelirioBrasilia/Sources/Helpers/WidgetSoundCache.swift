@@ -9,7 +9,7 @@ struct WidgetSoundCacheEntry: Codable {
 
 enum WidgetSoundCache {
 
-    static let appGroupIdentifier = "group.com.rafaelschmitt.MedoDelirioBrasilia"
+    static let appGroupIdentifier = "group.com.lucasdoreac.cao"
 
     private static var cacheURL: URL? {
         FileManager.default

@@ -17,6 +17,7 @@ enum Breadcrumbs {
     static func leave(_ message: String) {
         // Firebase is set up at launch; a note should never be what brings the app down.
         guard FirebaseApp.app() != nil else { return }
+        guard FirebaseApp.app() != nil else { return }
         Crashlytics.crashlytics().log(message)
     }
 }

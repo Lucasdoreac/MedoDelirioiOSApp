@@ -31,6 +31,7 @@ extension APIClient {
     }
 
     func post<T: Codable, U: Encodable>(to url: URL, body: U) async throws -> T {
+        guard AppIdentity.isOfficialBuild else { throw APIClientError.writesDisabledOutsideOfficialApp }
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
@@ -56,6 +57,7 @@ extension APIClient {
     }
 
     func post<T: Encodable>(to url: URL, body: T) async throws {
+        guard AppIdentity.isOfficialBuild else { return }
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
